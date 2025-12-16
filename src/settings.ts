@@ -1,5 +1,5 @@
 export const profile = {
-	fullName: 'Your Name',
+	fullName: 'Zhixiong Xiao',
 	title: '',
 	institute: '',
 	author_name: '', // Author name to be highlighted in the papers section
@@ -10,15 +10,15 @@ export const profile = {
 
 // Set equal to an empty string to hide the icon that you don't want to display
 export const social = {
-	email: '',
+	email: 'xiaozxiong@mail.sdu.edu.cn',
 	linkedin: '',
-	x: 'https://www.x.com/',
-	github: '',
+	x: 'https://x.com/Alan72599473',
+	github: 'https://github.com/xiaozxiong',
 	gitlab: '',
-	scholar: '',
+	scholar: 'https://scholar.google.com/citations?user=5b52JIQAAAAJ&hl=zh-CN',
 	inspire: '',
 	arxiv: '',
-	orcid: '',
+	orcid: 'https://orcid.org/my-orcid?orcid=0009-0004-7296-9504',
 }
 
 export const template = {

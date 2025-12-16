@@ -1,9 +1,9 @@
 export const experiences = [
 	{
-		company: '',
-		time: '',
-		title: '',
-		location: '',
+		company: 'Shandong University',
+		time: '2025.9 - Now',
+		title: 'Research Assistant',
+		location: 'Qingdao, China',
 		description: '',
 	},
 	// {
@@ -17,19 +17,21 @@ export const experiences = [
 
 export const education = [
 	{
-		school: '',
-		time: '',
-		degree: '',
-		location: '',
+		institution: 'Shandong University',
+		major: 'Computer Science and Technology',
+		time: '2022.9 - 2025.6',
+		degree: 'M.Eng.',
+		location: 'Qingdao, China',
 		description: '',
 	},
-	// {
-	// 	school: 'University of Paris',
-	// 	time: '1891 - 1895',
-	// 	degree: 'Master’s in Physics and Mathematics',
-	// 	location: 'Paris, France',
-	// 	description: 'Graduated at the top of her class in physics and second in mathematics.',
-	// },
+	{
+		institution: 'Dalian Maritime University',
+		major: 'Computer Science and Technology',
+		time: '2018.9 - 2022.6',
+		degree: 'B.Eng.',
+		location: 'Dalian, China',
+		description: '',
+	},
 ];
 
 export const skills = [
@@ -45,12 +47,59 @@ export const skills = [
 
 export const publications = [
 	{
-		title: '',
-		authors: '',
-		journal: '',
-		time: '',
-		link: '',
+		title: 'A Case Study for Ray Tracing Cores: Performance Insights with Breadth-First Search and Triangle Counting in Graphs',
+		authors: 'Zhixiong Xiao, Mengbai Xiao, Yuan Yuan, Dongxiao Yu, Rubao Lee, Xiaodong Zhang',
+		journal: 'International Conference on Measurement and Modeling of Computer Systems (SIGMETRICS)',
+		time: '2025',
+		link: 'pubs/sigmetrics25_rtgraph.pdf',
 		abstract: '',
+	},
+	{
+		title: 'Perceptually Driven Color Ordering for Palette Design',
+		authors: 'Zhixiong Xiao, Wensong Xu, Qiong Zeng',
+		journal: 'Journal of Computer-Aided Design & Computer Graphics',
+		time: '2022',
+		link: 'pubs/palette_design.pdf',
+		abstract: '',
+	},
+	// {
+	// 	title: 'The Radiation of Uranium Compounds',
+	// 	authors: 'Marie Curie',
+	// 	journal: 'Comptes Rendus de l’Académie des Sciences',
+	// 	time: '1898',
+	// 	link: '#',
+	// 	abstract: 'Early research leading to the identification of uranium’s radioactive properties.',
+	// },
+	// {
+	// 	title: 'The Radiation of Uranium Compounds',
+	// 	authors: 'Marie Curie',
+	// 	journal: 'Comptes Rendus de l’Académie des Sciences',
+	// 	time: '1898',
+	// 	link: '#',
+	// 	abstract: 'Early research leading to the identification of uranium’s radioactive properties.',
+	// },
+	// {
+	// 	title: 'The Radiation of Uranium Compounds',
+	// 	authors: 'Marie Curie',
+	// 	journal: 'Comptes Rendus de l’Académie des Sciences',
+	// 	time: '1898',
+	// 	link: '#',
+	// 	abstract: 'Early research leading to the identification of uranium’s radioactive properties.',
+	// },
+	// {
+	// 	title: 'The Radiation of Uranium Compounds',
+	// 	authors: 'Marie Curie',
+	// 	journal: 'Comptes Rendus de l’Académie des Sciences',
+	// 	time: '1898',
+	// 	link: '#',
+	// 	abstract: 'Early research leading to the identification of uranium’s radioactive properties.',
+	// },
+];
+
+export const awards = [
+	{
+		title: 'a',
+		time: 'b',
 	},
 	// {
 	// 	title: 'The Radiation of Uranium Compounds',

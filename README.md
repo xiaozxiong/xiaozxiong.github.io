@@ -104,3 +104,12 @@ Once you have added the new blog post, it will be automatically included in the 
 
 ## Deploy
 The template provides a workflow to deploy the website on Github pages as a static website.
+
+## Test in localhost
+'''
+npm install
+npm run dev
+'''
+
+https://academicpages.github.io/
+https://fuwari.vercel.app/

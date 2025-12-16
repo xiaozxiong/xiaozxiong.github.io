@@ -7,7 +7,8 @@ export interface Experience {
 }
 
 export interface Education {
-  school: string;
+  institution: string;
+  major: string
   time: string;
   degree: string;
   location?: string;
@@ -19,6 +20,11 @@ export interface Skill {
   description: string;
 }
 
+export interface Award {
+  title: string;
+  time: string;
+}
+
 export interface Publication {
   title: string;
   authors: string;
@@ -28,12 +34,13 @@ export interface Publication {
   abstract?: string;
 }
 
+
 export function isExperience(element: Experience | Education): element is Experience {
   return 'title' in element && 'company' in element;
 }
 
 export function isEducation(element: Education | Experience): element is Education {
-  return 'school' in element && 'degree' in element;
+  return 'institution' in element && 'degree' in element && 'major' in element;
 }
 
 export function isSkill(element: Skill | Publication): element is Skill {
@@ -42,4 +49,8 @@ export function isSkill(element: Skill | Publication): element is Skill {
 
 export function isPublication(element: Skill | Publication): element is Publication {
   return 'authors' in element;
+}
+
+export function isAward(element: Skill | Publication): element is Publication {
+  return 'title' in element;
 }
