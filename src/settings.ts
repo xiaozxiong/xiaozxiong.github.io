@@ -10,11 +10,11 @@ export const profile = {
 
 // Set equal to an empty string to hide the icon that you don't want to display
 export const social = {
-	email: 'xiaozxiong@mail.sdu.edu.cn',
+	email: 'xiaozx@sdu.edu.cn',
 	linkedin: '',
 	x: 'https://x.com/Alan72599473',
 	github: 'https://github.com/xiaozxiong',
-	gitlab: '',
+	gitlab: 'https://gitlab.com/xiaozhxiong',
 	scholar: 'https://scholar.google.com/citations?user=5b52JIQAAAAJ&hl=zh-CN',
 	inspire: '',
 	arxiv: '',
