@@ -11,10 +11,10 @@ const ALL_PAPERS = publications; // This will be replaced with dynamic data late
   <div class="prose max-w-none">
     <h1 class="text-3xl font-bold mb-8 border-b">Publications</h1>
 
-    <div class="space-y-4">
+    <div class="space-y-2">
       {
         ALL_PAPERS.map((paper) => (
-          <div class="card bg-[#f9fafb] rounded-md">
+          <div class="card bg-gray-50 rounded-md">
             <div class="card-body p-5">
               {/* Title and Read Paper button */}
               <h2 class="card-title text-base mt-0 mb-0">
@@ -22,7 +22,7 @@ const ALL_PAPERS = publications; // This will be replaced with dynamic data late
                   href={template.base + paper.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="font-bold hover:text-[#1e96fc] no-underline"
+                  class="font-bold hover:text-blue-500 no-underline"
                 >
                   {paper.title}{" "}
                 </a>

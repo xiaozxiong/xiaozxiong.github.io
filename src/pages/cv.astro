@@ -1,64 +1,119 @@
 ---
-import Layout from '@/layouts/Layout.astro'
-import { experiences, education, skills, publications, awards } from '../data/cv' //* insert my data
-import CvTimeline from '@/components/ui/CvTimeline.astro'
+import Layout from "@/layouts/Layout.astro";
+import {
+	experiences,
+	education,
+	skills,
+	publications,
+	awards,
+	scholarships,
+} from "../data/cv"; //* insert my data
+import CvTimeline from "@/components/ui/CvTimeline.astro";
 
-import type { Experience, Education, Publication, Award } from '../types/cv' //* styles
-import List from '@/components/ui/List.astro'
-import PublicationsList from '@/components/ui/PublicationsList.astro'
+import type {
+	Experience,
+	Education,
+	Publication,
+	Award,
+	Scholarship,
+} from "../types/cv"; //* styles
+import List from "@/components/ui/List.astro";
+import SingleList from "@/components/ui/SingleList.astro";
+import PublicationsList from "@/components/ui/PublicationsList.astro";
 
-let orderedExperiences: Experience[] = []
-let orderedEducations: Education[] = []
-let orderedPublications: Publication[] = []
-let orderedAwards: Award[] = []
+let orderedExperiences: Experience[] = [];
+let orderedEducations: Education[] = [];
+let orderedPublications: Publication[] = [];
+let orderedAwards: Award[] = [];
+let orderedScholarships: Scholarship[] = [];
 
 const orderElement = <T extends { time: string }>(a: T, b: T) => {
-  const presentValues = ['present', 'now', 'current', 'today']
-  if (
-			presentValues.includes(
-				(a['time'] as string)?.split(' - ')[1]?.toLowerCase()
-			)
-		) {
-			// If the date is 'present', it should be the first element
-			return -1
+	const presentValues = ["present", "now", "current", "today"];
+	if (
+		presentValues.includes(
+			(a["time"] as string)?.split(" - ")[1]?.toLowerCase(),
+		)
+	) {
+		// If the date is 'present', it should be the first element
+		return -1;
+	}
+	const dateA = new Date((a["time"] as string)?.split(" - ")[1]);
+	const dateB = new Date((b["time"] as string)?.split(" - ")[1]);
+	return dateB.getTime() - dateA.getTime();
+};
+
+const orderElementSingleTime = <T extends { time: string }>(a: T, b: T) => {
+	const presentValues = ["present", "now", "current", "today"];
+
+	const normalize = (t: string): number => {
+		const lower = t.trim().toLowerCase();
+
+		// Treat "present"/"now"/etc. as the most recent
+		if (presentValues.includes(lower)) {
+			return Number.POSITIVE_INFINITY;
 		}
-		const dateA = new Date((a['time'] as string)?.split(' - ')[1])
-		const dateB = new Date((b['time'] as string)?.split(' - ')[1])
-		return dateB.getTime() - dateA.getTime()
-}
+
+		// Handle formats like "Sep. 2025" or "Sep 2025"
+		// Remove trailing dots to make Date parsing more robust
+		const normalized = t.replace(".", "");
+		const date = new Date(normalized);
+
+		// Fallback for invalid dates
+		return isNaN(date.getTime())
+			? Number.NEGATIVE_INFINITY
+			: date.getTime();
+	};
+
+	return normalize(b.time) - normalize(a.time);
+};
 
 if (experiences.length > 0) {
 	orderedExperiences = experiences.sort((a, b) => {
-		return orderElement(a, b)
-	})
+		return orderElement(a, b);
+	});
 }
 
 if (education.length > 0) {
 	orderedEducations = education.sort((a, b) => {
-		return orderElement(a, b)
-	})
+		return orderElement(a, b);
+	});
 }
 
 if (publications.length > 0) {
 	orderedPublications = publications.sort((a, b) => {
-		return orderElement(a, b)
-	})
+		return orderElement(a, b);
+	});
 }
 
 if (awards.length > 0) {
+	// console.log("awards.length:", awards.length);
 	orderedAwards = awards.sort((a, b) => {
-		return orderElement(a, b)
-	})
+		return orderElementSingleTime(a, b);
+	});
+	// console.log("orderedAwards:", orderedAwards);
+}
+
+if (scholarships.length > 0) {
+	orderedScholarships = scholarships.sort((a, b) => {
+		return orderElementSingleTime(a, b);
+	});
 }
 ---
 
 <Layout>
+	<p class="text-lg mb-4">
+		For a full list of publications and research experience, please see my <a
+			href="/cv/Zhixiong_Xiao_CV.pdf"
+			download
+			class="font-medium hover:text-[#1e96fc] hover:underline transition-colors"
+		>
+			CV</a
+		>.
+	</p>
 	{
 		orderedEducations.length > 0 && (
-			<section class='mb-12'>
-				<h2 class='text-2xl font-bold mb-6 border-b pb-2'>
-					Education
-				</h2>
+			<section class="mb-12">
+				<h2 class="text-2xl font-bold mb-6 border-b pb-2">Education</h2>
 				<CvTimeline elements={orderedEducations} colored={true} />
 			</section>
 		)
@@ -66,8 +121,8 @@ if (awards.length > 0) {
 
 	{
 		orderedExperiences.length > 0 && (
-			<section class='mb-12'>
-				<h2 class='text-2xl font-bold mb-6 border-b pb-2'>
+			<section class="mb-12">
+				<h2 class="text-2xl font-bold mb-6 border-b pb-2">
 					Experiences
 				</h2>
 				<CvTimeline elements={orderedExperiences} colored={true} />
@@ -76,17 +131,28 @@ if (awards.length > 0) {
 	}
 
 	{
-		awards.length > 0 && (
-			<section class='mb-12'>
-				<List listTitle='Awards' listItems={skills}/>
+		orderedScholarships.length > 0 && (
+			<section class="mb-12">
+				<SingleList
+					listTitle="Scholarships"
+					listItems={orderedScholarships}
+				/>
+			</section>
+		)
+	}
+
+	{
+		orderedAwards.length > 0 && (
+			<section class="mb-12">
+				<SingleList listTitle="Awards" listItems={orderedAwards} />
 			</section>
 		)
 	}
 
 	{
 		skills.length > 0 && (
-			<section class='mb-12'>
-				<List listTitle='Skills' listItems={skills}/>
+			<section class="mb-12">
+				<List listTitle="Skills" listItems={skills} />
 			</section>
 		)
 	}

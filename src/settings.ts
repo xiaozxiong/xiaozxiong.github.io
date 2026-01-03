@@ -2,9 +2,9 @@ export const profile = {
 	fullName: 'Zhixiong Xiao',
 	title: '',
 	institute: '',
-	author_name: '', // Author name to be highlighted in the papers section
+	author_name: 'Zhixiong Xiao', // Author name to be highlighted in the papers section
 	research_areas: [
-		// { title: 'Physics', description: 'Brief description of the research interest', field: 'physics' },
+		{ title: 'Computer Science', description: 'Brief description of the research interest', field: 'physics' },
 	],
 }
 

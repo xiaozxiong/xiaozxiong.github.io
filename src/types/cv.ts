@@ -21,7 +21,12 @@ export interface Skill {
 }
 
 export interface Award {
-  title: string;
+  name: string;
+  time: string;
+}
+
+export interface Scholarship {
+  name: string;
   time: string;
 }
 
@@ -51,6 +56,10 @@ export function isPublication(element: Skill | Publication): element is Publicat
   return 'authors' in element;
 }
 
-export function isAward(element: Skill | Publication): element is Publication {
-  return 'title' in element;
+export function isAward(element: Skill | Award): element is Award {
+  return 'name' in element;
+}
+
+export function isScholarship(element: Scholarship | Award): element is Scholarship {
+  return 'name' in element;
 }

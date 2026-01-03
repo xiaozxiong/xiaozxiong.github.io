@@ -32,17 +32,17 @@ const { elements, colored } = Astro.props
         {/* Right side content */}
         <div class="flex-1">
           {/* Time period */}
-          <time class="font-mono italic text-lg text-gray-500">{element.time}</time>
+          <time class="font-mono italic text-base text-gray-500">{element.time}</time>
           
           {/* Title/Degree and Company/Institution in the same line */}
           <div class="flex items-center gap-4 mt-1 text-lg">
-            <span class="font-bold">{isExp ? element.title : element.degree}</span>
-            <span class="font-medium text-gray-700">{isExp ? '' : element.major}</span>
-            <span class="font-medium text-gray-700">{isExp ? element.company : element.institution}</span>
+            <span class="font-bold text-base">{isExp ? element.title : element.degree}</span>
+            <span class="text-base">{isExp ? '' : element.major}</span>
+            <span class="text-base">{isExp ? element.company : element.institution}</span>
           </div>
 
           {/* Description */}
-          {element.description && <p class="mt-2 text-lg text-gray-700">{element.description}</p>}
+          {element.description && <p class="mt-2 text-base text-gray-700">{element.description}</p>}
         
           {/* Optional location */}
           {element.location && <div class="text-gray-400 text-base">{element.location}</div>}

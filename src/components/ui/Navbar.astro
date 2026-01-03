@@ -11,7 +11,7 @@ const isBlogPopulated = await getCollection('blog').then(collection => collectio
 const {fullName, title} = profile
 ---
 <aside
-	class='px-4 pt-4 h-screen w-[20rem] bg-[#f1f5f9] text-base-content flex flex-col'
+	class='px-4 pt-4 h-screen w-[20rem] bg-slate-100 text-base-content flex flex-col'
 >
 	<div class='flex flex-col my-8 justify-between h-full'>
 		<div>
@@ -32,16 +32,16 @@ const {fullName, title} = profile
                         <a href={`${template.base}/research`} class='text-lg'>Research</a>
 					</li>
 					<li>
-                        <a href={`${template.base}/papers`} class='text-lg'>Papers</a>
+                        <a href={`${template.base}/publication`} class='text-lg'>Publications</a>
 					</li>
 					<li>
                         <a href={`${template.base}/cv`} class='text-lg'>CV</a>
                     </li>
-                    {isBlogPopulated &&
+                    <!-- {isBlogPopulated &&
 					<li>
                         <a href={`${template.base}/blog/1`} class='text-lg'>Blog</a>
 </li>
-                    }
+                    } -->
 				</ul>
 			</div>
 		</div>
