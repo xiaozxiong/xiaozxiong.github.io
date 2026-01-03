@@ -51,7 +51,7 @@ export const publications = [
 		authors: 'Zhixiong Xiao, Mengbai Xiao, Yuan Yuan, Dongxiao Yu, Rubao Lee, Xiaodong Zhang',
 		journal: 'International Conference on Measurement and Modeling of Computer Systems (SIGMETRICS)',
 		time: '2025',
-		link: 'https://dl.acm.org/doi/abs/10.1145/3727108',
+		link: '/pubs/sigmetrics25_rtgraph.pdf',
 		abstract: '',
 	},
 	{
@@ -59,7 +59,7 @@ export const publications = [
 		authors: 'Zhixiong Xiao, Wensong Xu, Qiong Zeng',
 		journal: 'Journal of Computer-Aided Design & Computer Graphics',
 		time: '2022',
-		link: 'https://www.jcad.cn/en/article/doi/10.3724/SP.J.1089.2024.19879',
+		link: '/pubs/palette_design.pdf',
 		abstract: '',
 	},
 	// {
