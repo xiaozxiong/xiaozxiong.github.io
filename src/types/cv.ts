@@ -39,6 +39,10 @@ export interface Publication {
   abstract?: string;
 }
 
+export interface Service {
+  name: string;
+  time: string;
+}
 
 export function isExperience(element: Experience | Education): element is Experience {
   return 'title' in element && 'company' in element;
@@ -61,5 +65,9 @@ export function isAward(element: Skill | Award): element is Award {
 }
 
 export function isScholarship(element: Scholarship | Award): element is Scholarship {
+  return 'name' in element;
+}
+
+export function isService(element: Service): element is Service {
   return 'name' in element;
 }

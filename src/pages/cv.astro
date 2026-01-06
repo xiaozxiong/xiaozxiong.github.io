@@ -7,6 +7,7 @@ import {
 	publications,
 	awards,
 	scholarships,
+	services
 } from "../data/cv"; //* insert my data
 import CvTimeline from "@/components/ui/CvTimeline.astro";
 
@@ -16,6 +17,7 @@ import type {
 	Publication,
 	Award,
 	Scholarship,
+	Service,
 } from "../types/cv"; //* styles
 import List from "@/components/ui/List.astro";
 import SingleList from "@/components/ui/SingleList.astro";
@@ -26,6 +28,7 @@ let orderedEducations: Education[] = [];
 let orderedPublications: Publication[] = [];
 let orderedAwards: Award[] = [];
 let orderedScholarships: Scholarship[] = [];
+let orderedServices: Service[] = [];
 
 const orderElement = <T extends { time: string }>(a: T, b: T) => {
 	const presentValues = ["present", "now", "current", "today"];
@@ -98,6 +101,13 @@ if (scholarships.length > 0) {
 		return orderElementSingleTime(a, b);
 	});
 }
+
+if (services.length > 0) {
+	orderedServices = services.sort((a, b) => {
+		return orderElementSingleTime(a, b);
+	});
+}
+
 ---
 
 <Layout>
@@ -156,4 +166,13 @@ if (scholarships.length > 0) {
 			</section>
 		)
 	}
+
+	{
+		orderedServices.length > 0 && (
+			<section class="mb-12">
+				<SingleList listTitle="Services" listItems={orderedServices} />
+			</section>
+		)
+	}
+
 </Layout>

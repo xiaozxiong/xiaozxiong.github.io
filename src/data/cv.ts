@@ -51,7 +51,7 @@ export const publications = [
 		authors: 'Zhixiong Xiao, Mengbai Xiao, Yuan Yuan, Dongxiao Yu, Rubao Lee, Xiaodong Zhang',
 		journal: 'International Conference on Measurement and Modeling of Computer Systems (SIGMETRICS)',
 		time: '2025',
-		link: '/pubs/sigmetrics25_rtgraph.pdf',
+		link: 'https://drive.google.com/file/d/1YVHFBASY_vDifilZaFb1LYbY5VgbFl2h/view?usp=drive_link',
 		abstract: '',
 	},
 	{
@@ -59,7 +59,7 @@ export const publications = [
 		authors: 'Zhixiong Xiao, Wensong Xu, Qiong Zeng',
 		journal: 'Journal of Computer-Aided Design & Computer Graphics',
 		time: '2022',
-		link: '/pubs/palette_design.pdf',
+		link: 'https://drive.google.com/file/d/1LMAt6V7_KcHlS44BASRGA76L9GdAA7Gu/view?usp=drive_link',
 		abstract: '',
 	},
 	// {
@@ -132,6 +132,14 @@ export const scholarships = [
 	{
 		name: 'National Encouragement Scholarship, Dalian Maritime University',
 		time: 'Nov. 2019',
+	},
+	
+];
+
+export const services = [
+	{
+		name: 'Shadow PC, ACM SIGMETRICS',
+		time: '2026',
 	},
 	
 ];
