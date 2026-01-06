@@ -1,39 +1,42 @@
 ---
-import { isSkill } from "@/types/cv";
-import type {Publication } from "@/types/cv";
+import type { Publication } from "@/types/cv";
 import { highlightAuthor } from "@/lib/utils";
+import { template } from "@/settings";
 
 interface Props {
-  elements: Publication[];
+  papers: Publication[];
 }
 
-const { elements } = Astro.props;
+const { papers } = Astro.props;
 ---
 
-<ul class="space-y-8">
-  {elements.map((element, index) => (
-    <li class="group">
-      <a
-        href={element.link as string}
-        class="block hover:text-accent transition-colors duration-200"
-        target="_blank"
-      >
-        <h3 class="text-lg font-bold mb-2">{element.title}</h3>
-      </a>
+<div class="space-y-2">
+  {
+    papers.map((paper) => (
+      <div class="card bg-gray-50 rounded-md">
+        <div class="card-body p-5">
+          {/* Title and Read Paper button */}
+          <h2 class="card-title text-base mt-0 mb-0">
+            <a
+              href={template.base + paper.link}
+              target="_blank"
+              class="font-bold hover:text-blue-500 no-underline"
+            >
+              {paper.title}{" "}
+            </a>
+          </h2>
 
-      <p class="text-base mb-2">
-        <span class="font-medium">Authors:</span>{" "}
-        <span set:html={highlightAuthor(element.authors as string)} />
-      </p>
+          {/* Authors */}
+          <p class="text-base mb-0 mt-0 leading-tight">
+            <span set:html={highlightAuthor(paper.authors)} />
+          </p>
 
-      <p class="text-sm mb-3">
-        <span class="italic">{element.journal}</span> • {element.time}
-      </p>
-
-      <p>{element.abstract}</p>
-
-      {/* Optional: small border bottom between publications */}
-      {/* {index !== elements.length -1 && <hr class="mt-6 border-primary/40" />} */}
-    </li>
-  ))}
-</ul>
+          {/* Conference */}
+          <p class="text-base mb-0 mt-0 leading-tight">
+            <span class="italic">{paper.journal}</span>, {paper.time}
+          </p>
+        </div>
+      </div>
+    ))
+  }
+</div>

@@ -4,71 +4,37 @@ import {
 	experiences,
 	education,
 	skills,
-	publications,
 	awards,
 	scholarships,
-	services
+	services,
+	teachings,
 } from "../data/cv"; //* insert my data
 import CvTimeline from "@/components/ui/CvTimeline.astro";
 
 import type {
 	Experience,
 	Education,
-	Publication,
 	Award,
 	Scholarship,
 	Service,
+	Teaching,
 } from "../types/cv"; //* styles
+
 import List from "@/components/ui/List.astro";
 import SingleList from "@/components/ui/SingleList.astro";
-import PublicationsList from "@/components/ui/PublicationsList.astro";
+import TeachingList from "@/components/ui/TeachingList.astro";
+import {
+	orderElement,
+	orderElementSingleTime,
+	orderTeaching,
+} from "@/components/ui/Sorter.astro";
 
 let orderedExperiences: Experience[] = [];
 let orderedEducations: Education[] = [];
-let orderedPublications: Publication[] = [];
 let orderedAwards: Award[] = [];
 let orderedScholarships: Scholarship[] = [];
 let orderedServices: Service[] = [];
-
-const orderElement = <T extends { time: string }>(a: T, b: T) => {
-	const presentValues = ["present", "now", "current", "today"];
-	if (
-		presentValues.includes(
-			(a["time"] as string)?.split(" - ")[1]?.toLowerCase(),
-		)
-	) {
-		// If the date is 'present', it should be the first element
-		return -1;
-	}
-	const dateA = new Date((a["time"] as string)?.split(" - ")[1]);
-	const dateB = new Date((b["time"] as string)?.split(" - ")[1]);
-	return dateB.getTime() - dateA.getTime();
-};
-
-const orderElementSingleTime = <T extends { time: string }>(a: T, b: T) => {
-	const presentValues = ["present", "now", "current", "today"];
-
-	const normalize = (t: string): number => {
-		const lower = t.trim().toLowerCase();
-
-		// Treat "present"/"now"/etc. as the most recent
-		if (presentValues.includes(lower)) {
-			return Number.POSITIVE_INFINITY;
-		}
-
-		// Handle formats like "Sep. 2025" or "Sep 2025"
-		// Remove trailing dots to make Date parsing more robust
-		const normalized = t.replace(".", "");
-		const date = new Date(normalized);
-
-		// Fallback for invalid dates
-		return isNaN(date.getTime())
-			? Number.NEGATIVE_INFINITY
-			: date.getTime();
-	};
-
-	return normalize(b.time) - normalize(a.time);
-};
+let orderedTeachings: Teaching[] = [];
 
 if (experiences.length > 0) {
 	orderedExperiences = experiences.sort((a, b) => {
@@ -82,18 +48,10 @@ if (education.length > 0) {
 	});
 }
 
-if (publications.length > 0) {
-	orderedPublications = publications.sort((a, b) => {
-		return orderElement(a, b);
-	});
-}
-
 if (awards.length > 0) {
-	// console.log("awards.length:", awards.length);
 	orderedAwards = awards.sort((a, b) => {
 		return orderElementSingleTime(a, b);
 	});
-	// console.log("orderedAwards:", orderedAwards);
 }
 
 if (scholarships.length > 0) {
@@ -108,6 +66,11 @@ if (services.length > 0) {
 	});
 }
 
+if (teachings.length > 0) {
+	orderedTeachings = teachings.sort((a, b) => {
+		return orderTeaching(a, b);
+	});
+}
 ---
 
 <Layout>
@@ -175,4 +138,11 @@ if (services.length > 0) {
 		)
 	}
 
+	{
+		orderedTeachings.length > 0 && (
+			<section class="mb-12">
+				<TeachingList listTitle="Teaching" listItems={orderedTeachings} />
+			</section>
+		)
+	}
 </Layout>

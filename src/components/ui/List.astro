@@ -15,9 +15,9 @@ const { listTitle, listItems } = Astro.props;
   {
     listItems.map((item) => (
       <li class="text-base">
-        <span class="font-medium">{item.title}</span>
+        <span class="font-medium">{item.title}:</span>
         {item.description && (
-          <span class="text-base ml-2">: {item.description}</span>
+          <span class="text-base ml-2"> {item.description}</span>
         )}
       </li>
     ))

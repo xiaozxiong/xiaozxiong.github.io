@@ -44,6 +44,13 @@ export interface Service {
   time: string;
 }
 
+export interface Teaching {
+  role: string
+  course: string;
+  institution: string
+  time: string;
+}
+
 export function isExperience(element: Experience | Education): element is Experience {
   return 'title' in element && 'company' in element;
 }
@@ -69,5 +76,9 @@ export function isScholarship(element: Scholarship | Award): element is Scholars
 }
 
 export function isService(element: Service): element is Service {
+  return 'name' in element;
+}
+
+export function isTeaching(element: Teaching): element is Teaching {
   return 'name' in element;
 }

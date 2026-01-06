@@ -1,0 +1,75 @@
+---
+export const orderElement = <T extends { time: string }>(a: T, b: T) => {
+    const presentValues = ["present", "now", "current", "today"];
+    if (
+        presentValues.includes(
+            (a["time"] as string)?.split(" - ")[1]?.toLowerCase(),
+        )
+    ) {
+        // If the date is 'present', it should be the first element
+        return -1;
+    }
+    const dateA = new Date((a["time"] as string)?.split(" - ")[1]);
+    const dateB = new Date((b["time"] as string)?.split(" - ")[1]);
+    return dateB.getTime() - dateA.getTime();
+};
+
+export const orderElementSingleTime = <T extends { time: string }>(
+    a: T,
+    b: T,
+) => {
+    const presentValues = ["present", "now", "current", "today"];
+
+    const normalize = (t: string): number => {
+        const lower = t.trim().toLowerCase();
+
+        // Treat "present"/"now"/etc. as the most recent
+        if (presentValues.includes(lower)) {
+            return Number.POSITIVE_INFINITY;
+        }
+
+        // Handle formats like "Sep. 2025" or "Sep 2025"
+        // Remove trailing dots to make Date parsing more robust
+        const normalized = t.replace(".", "");
+        const date = new Date(normalized);
+
+        // Fallback for invalid dates
+        return isNaN(date.getTime())
+            ? Number.NEGATIVE_INFINITY
+            : date.getTime();
+    };
+
+    return normalize(b.time) - normalize(a.time);
+};
+
+export const orderPublication = <T extends { time: string }>(
+    a: T,
+    b: T,
+): number => {
+    const extractYear = (t: string): number => {
+        const match = t.match(/\d{4}/);
+        return match ? Number(match[0]) : 0;
+    };
+
+    return extractYear(b.time) - extractYear(a.time);
+};
+
+export const orderTeaching = <T extends { time: string }>(
+    a: T,
+    b: T,
+): number => {
+    const semesterRank: Record<string, number> = {
+        Spring: 1,
+        Summer: 2,
+        Fall: 3,
+        Winter: 4,
+    };
+
+    const parse = (t: string) => {
+        const [semester, yearStr] = t.split(" ");
+        return Number(yearStr) * 10 + (semesterRank[semester] ?? 0);
+    };
+
+    return parse(b.time) - parse(a.time);
+};
+---

@@ -143,3 +143,24 @@ export const services = [
 	},
 	
 ];
+
+export const teachings = [
+	{
+		role: 'Teaching Assistant',
+		course: 'Data Structures and Algorithms',
+		institution: 'Shandong University',
+		time: 'Fall 2024',
+	},
+	{
+		role: 'Teaching Assistant',
+		course: 'Data Structures and Algorithms',
+		institution: 'Shandong University',
+		time: 'Fall 2023',
+	},
+	{
+		role: 'Teaching Assistant',
+		course: 'Curriculum Design for Operating Systems',
+		institution: 'Shandong University',
+		time: 'Spring 2023',
+	},
+];
