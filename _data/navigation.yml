@@ -1,0 +1,15 @@
+pages:
+# NOTE: `name` field must match `navbar_title` field in page's front matter to ensure correct page is highlighted in navbar.
+#       - For example, `navbar_title` field in `show` ase.html` is "Showcase" and `name` field here should also be "Showcase"
+# this uses index.html default
+# - name: Home
+#   url: /
+# use layout2
+- name: Home
+  url: /index_layout2
+- name: Publications
+  url: /publications
+- name: CV
+  url: /cv
+# - name: Showcase
+#   url: /showcase
