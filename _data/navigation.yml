@@ -6,7 +6,7 @@ pages:
 #   url: /
 # use layout2
 - name: Home
-  url: /index_layout2
+  url: /index
 - name: Publications
   url: /publications
 - name: CV
