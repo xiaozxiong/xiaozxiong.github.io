@@ -20,9 +20,9 @@ authors:
   - Rubao Lee
   - Xiaodong Zhang
 links:
-  PDF: 
+  PDF: assets/pubs/sigmetrics25_rtgraph.pdf
   Code: https://github.com/xiaozxiong/RT-Graph
-  Slides:
+  Slides: assets/slides/sigmetrics25_rtgraph.pdf
   # Unsplash: https://unsplash.com/photos/sliced-in-half-pineapple--_PLJZmHZzk
 
 # "Name*" - 表示 equal contribution（第一作者）
