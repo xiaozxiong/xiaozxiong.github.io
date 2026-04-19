@@ -1,0 +1,32 @@
+---
+title: "PARS: Optimizing High-Dimensional Vector Search with Dimensional Reduction and Ray Tracing Core"
+date: 2026-01-18 00:00:00 +0800
+selected: 
+pub: "46th IEEE International Conference on Distributed Computing Systems (ICDCS)"
+pub_pre:        "Submitted to " # 前缀文字
+pub_post:       ', Under review' # 后缀文字
+# pub_last: ' <span class="badge badge-pill badge-publication badge-success">Spotlight</span>' # 年份后的额外内容，如徽章 <span class="badge">Spotlight</span>
+pub_date: 2026
+semantic_scholar_id: ""  # use this to retrieve citation count
+# abstract: >-
+
+# cover: 
+
+authors:
+  - Yiling Ma
+  - Mengbai Xiao
+  - Zhixiong Xiao
+  - Yuan Yuan
+  - Dongxiao Yu
+  - Guanghui Zhang
+  - Feng Li
+# links:
+#   PDF: 
+#   Code: 
+#   Slides:
+  # Unsplash: https://unsplash.com/photos/sliced-in-half-pineapple--_PLJZmHZzk
+
+# "Name*" - 表示 equal contribution（第一作者）
+# "Name#" - 表示 corresponding author（通讯作者）
+# "Name*#" 或 "Name#*" - 既是第一作者又是通讯作者
+---
