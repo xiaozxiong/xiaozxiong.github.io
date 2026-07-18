@@ -1,0 +1,99 @@
+---
+layout: default
+---
+
+{% assign p = site.data.profile %}
+
+<main class="main">
+
+  {% if p.education %}
+  <section class="module">
+    <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+    {% for edu in p.education %}
+    <div class="cv-item">
+      <div class="cv-item-main">
+        <div class="cv-item-title">{{ edu.degree }}</div>
+        <div class="cv-item-sub">
+          {% if edu.logo %}<img src="{{ edu.logo | relative_url }}" alt="" class="cv-logo" />{% endif %}
+          {{ edu.school }}
+        </div>
+        {% if edu.advisor %}<div class="cv-item-detail">{{ edu.advisor }}</div>{% endif %}
+      </div>
+      <div class="cv-item-period">{{ edu.period }}</div>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if p.experience %}
+  <section class="module cv-list">
+    <h2><i class="fa-solid fa-briefcase"></i> Experience</h2>
+    {% for exp in p.experience %}
+    <div class="cv-item">
+      <div class="cv-item-main">
+        <div class="cv-item-title">{{ exp.role }}</div>
+        <div class="cv-item-sub">{{ exp.institution }}</div>
+      </div>
+      <div class="cv-item-period">{{ exp.period }}</div>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if p.awards %}
+  <section class="module cv-list">
+    <h2><i class="fa-solid fa-trophy"></i> Honors &amp; Awards</h2>
+    {% for award in p.awards %}
+    <div class="cv-item cv-item-award">
+      <div class="cv-item-main">
+        <div class="cv-item-title">{{ award.name }}</div>
+      </div>
+      <div class="cv-item-period">{{ award.date }}</div>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if p.services %}
+  <section class="module cv-list">
+    <h2><i class="fa-solid fa-handshake"></i> Professional Services</h2>
+    {% for s in p.services %}
+    <div class="cv-item cv-item-award">
+      <div class="cv-item-main">
+        <div class="cv-item-title">{{ s.name }}</div>
+      </div>
+      <div class="cv-item-period">{{ s.date }}</div>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if p.teaching %}
+  <section class="module cv-list">
+    <h2><i class="fa-solid fa-chalkboard-user"></i> Teaching</h2>
+    {% for t in p.teaching %}
+    <div class="cv-item">
+      <div class="cv-item-main">
+        <div class="cv-item-title">{{ t.role }}</div>
+        <div class="cv-item-sub">{{ t.school }}</div>
+      </div>
+      <div class="cv-item-period">{{ t.period }}</div>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if p.skills %}
+  <section class="module">
+    <h2><i class="fa-solid fa-lightbulb"></i> Skills</h2>
+    {% for group in p.skills %}
+    <div class="cv-item">
+      <div class="cv-item-main">
+        <strong>{{ group.category }}:</strong> {{ group.items | join: ", " }}
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+</main>

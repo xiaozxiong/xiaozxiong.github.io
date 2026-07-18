@@ -1,0 +1,126 @@
+---
+layout: default
+---
+
+{% assign p = site.data.profile %}
+
+<!-- ========== PROFILE + ABOUT ========== -->
+<section class="module id-card" id="home">
+  <div class="id-row">
+    <div class="id-photo-wrap" id="id-photo-wrap">
+      <img id="id-photo" src="{{ p.photo | relative_url }}" alt="{{ p.name | escape }}" />
+      <div class="id-fb" id="id-fb">Z</div>
+    </div>
+    <div class="id-text">
+      <h1 class="id-name">{{ p.name }} {% if p.name_cn %}<span class="id-cn">{{ p.name_cn }}</span>{% endif %}</h1>
+      <p class="id-affil">{{ p.affiliation }}<br>{{ p.school }}</p>
+
+      <p class="lead id-bio">{{ p.about_lead }}</p>
+      <p>{{ p.about_detail }}</p>
+
+      <div class="id-cv-line">
+        <i class="fa-solid fa-file-lines s-icon"></i> <a href="{{ p.cv_link | default: '/assets/cv/xiao_cv.pdf' }}">Curriculum Vitae</a>
+      </div>
+    </div>
+  </div>
+
+  <hr class="id-divider" />
+
+  <div class="id-contact">
+    <div class="id-links">
+      <a class="id-link" href="mailto:{{ p.email }}">
+        <span class="s-icon">✉️</span> {{ p.email }}
+      </a>
+      {% for link in p.links %}
+      <a class="id-link" href="{{ link.url }}" target="_blank" rel="noopener">
+        <span class="s-icon">{{ link.icon }}</span> {{ link.text }}
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ========== NEWS ========== -->
+{% assign news_sorted = site.news | sort: "date" | reverse %}
+{% if news_sorted.size > 0 %}
+{% assign news_by_year = news_sorted | group_by_exp: "item", "item.date | date: '%Y'" %}
+<section class="module" id="news-sec">
+  <h2><i class="fa-solid fa-rss"></i> News</h2>
+  <div class="news-year-list">
+    {% for year in news_by_year %}
+    <div class="news-year-row">
+      <div class="news-year-label">{{ year.name }}</div>
+      <div class="news-year-items">
+        {% for item in year.items %}
+        <div class="news-line">
+          <span>{{ item.title }}</span>
+          <span class="news-line-date">{{ item.date | date: "%b %d" }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<!-- ========== RESEARCH ========== -->
+{% assign research_items = site.research | sort: "order" %}
+{% if research_items.size > 0 %}
+<section class="module" id="research-sec">
+  <h2><i class="fa-solid fa-microscope"></i> Research</h2>
+  {% for r in research_items %}
+  <div class="research-topic">
+    <p><strong>{{ r.title }}.</strong> {{ r.desc }}</p>
+    {% if r.interests %}
+    <div class="chips">
+      {% for interest in r.interests %}
+      <span class="chip">{{ interest }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  {% endfor %}
+</section>
+{% endif %}
+
+<!-- ========== SELECTED PUBLICATIONS ========== -->
+<section class="module" id="pub-sec">
+  <h2><i class="fa-solid fa-star"></i> Selected Publications</h2>
+  {% assign pubs = site.publications | where: "selected", true | sort: "date" | reverse %}
+  {% if pubs.size > 0 %}
+  <div id="pub-list">
+    {% for pub in pubs %}
+    <div class="pub">
+      <div class="pub-body">
+        <div class="pub-title">{{ pub.title }}</div>
+        <div class="pub-authors">
+          {% for author in pub.authors %}
+            {% if author.me %}<span class="me">{% else %}{% endif %}
+            {{ author.name }}
+            {% if author.star %}<span class="pub-star">*</span>{% endif %}
+            {% if author.hash %}<span class="pub-hash">#</span>{% endif %}
+            {% if author.me %}</span>{% endif %}
+            {% unless forloop.last %}, {% endunless %}
+          {% endfor %}
+        </div>
+        <div class="pub-meta">
+          <div class="pub-venue">{{ pub.venue }}</div>
+          {% if pub.links.size > 0 %}
+          <div class="pub-links">
+            {% for link in pub.links %}
+            <a class="pub-link" href="{{ link.url }}" target="_blank" rel="noopener">[{{ link.text }}]</a>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <span class="empty-hint">Publications coming soon.</span>
+  {% endif %}
+  <p class="pub-all-link"><a href="/publications">→ Full publication list</a></p>
+</section>
+

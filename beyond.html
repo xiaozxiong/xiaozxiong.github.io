@@ -1,0 +1,34 @@
+---
+layout: default
+---
+
+{% assign items = site.beyond | sort: "date" | reverse %}
+
+<main class="main">
+
+  {% if items.size > 0 %}
+  {% for item in items %}
+  <section class="module">
+    <h2><i class="fa-solid fa-image"></i> {{ item.title }}</h2>
+    {% if item.intro %}<p>{{ item.intro }}</p>{% endif %}
+    {% if item.photos and item.photos.size > 0 %}
+    <div class="gallery">
+      {% for photo in item.photos %}
+      <div class="gallery-item">
+        <img src="{{ photo.src | relative_url }}" alt="{{ photo.alt | escape }}" loading="lazy" />
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-hint">Photos coming soon. Add them in <code>_beyond/{{ item.path | split: '/' | last }}</code>.</div>
+    {% endif %}
+  </section>
+  {% endfor %}
+  {% else %}
+  <section class="module">
+    <h2><i class="fa-solid fa-image"></i> Beyond Research</h2>
+    <div class="empty-hint">Nothing here yet. Create a <code>.md</code> file in <code>_beyond/</code> to get started.</div>
+  </section>
+  {% endif %}
+
+</main>

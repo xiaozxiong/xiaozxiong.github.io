@@ -1,0 +1,57 @@
+---
+layout: default
+---
+
+{% assign pubs_by_year = site.publications | sort: "date" | reverse | group_by_exp: "item", "item.date | date: '%Y'" %}
+
+<div class="pub-layout">
+
+  <section class="module">
+    <h2><i class="fa-solid fa-file-lines"></i> Publications</h2>
+      <p class="pub-legend"><span class="pub-star">*</span> equal contribution &nbsp; <span class="pub-hash">#</span> corresponding author</p>
+
+    {% for year in pubs_by_year %}
+    <div class="pub-year-block" id="year-{{ year.name }}">
+      <h3 class="pub-year-heading">{{ year.name }}</h3>
+      {% for pub in year.items %}
+      <div class="pub">
+        <div class="pub-body">
+          <div class="pub-title">{{ pub.title }}</div>
+          <div class="pub-authors">
+            {% for author in pub.authors %}
+              {% if author.me %}<span class="me">{% else %}{% endif %}
+              {{ author.name }}
+              {% if author.star %}<span class="pub-star">*</span>{% endif %}
+              {% if author.hash %}<span class="pub-hash">#</span>{% endif %}
+              {% if author.me %}</span>{% endif %}
+              {% unless forloop.last %}, {% endunless %}
+            {% endfor %}
+          </div>
+          <div class="pub-meta">
+            <div class="pub-venue">{{ pub.venue }}</div>
+            {% if pub.links.size > 0 %}
+            <div class="pub-links">
+              {% for link in pub.links %}
+              <a class="pub-link" href="{{ link.url }}" target="_blank" rel="noopener">[{{ link.text }}]</a>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+
+  </section>
+
+  <aside class="pub-year-nav">
+    <div class="card year-nav-card">
+      <div class="year-nav-inner" id="year-nav">
+        {% for year in pubs_by_year %}
+        <a class="year-nav-link" href="#year-{{ year.name }}">{{ year.name }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </aside>
+</div>

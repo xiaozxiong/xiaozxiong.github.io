@@ -1,0 +1,28 @@
+title: Zhixiong Xiao
+description: >-
+  Zhixiong Xiao — Incoming PhD Student in Computer Science at OSU.
+  GPU acceleration, RT cores, computer systems.
+baseurl: ""
+url: "https://xiaozxiong.github.io"
+
+# Build settings
+markdown: kramdown
+plugins: []
+
+# Jekyll collections
+collections:
+  publications:
+    output: false
+  news:
+    output: false
+  beyond:
+    output: false
+  research:
+    output: false
+
+# Exclude from output
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor/

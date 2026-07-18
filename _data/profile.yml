@@ -1,0 +1,117 @@
+# ============================================================
+#  Personal Content — edit this file to update your homepage
+# ============================================================
+
+# ── Identity ────────────────────────────────────────────
+name: "Zhixiong Xiao"
+name_cn: "肖志雄"
+pronouns: "He / Him"
+photo: "/images/portrait.jpg"                           # e.g. /images/portrait.jpg — leave empty for initial
+affiliation: "Incoming PhD Student"
+school: "The Ohio State University"
+
+email: "xiao.1314@osu.edu"
+
+# ── Contact Links ───────────────────────────────────────
+links:
+  - icon: "🎓"
+    text: "Google Scholar"
+    url: "https://scholar.google.com/citations?user=5b52JIQAAAAJ"
+  - icon: "🐙"
+    text: "GitHub"
+    url: "https://github.com/xiaozxiong"
+  - icon: "🐦"
+    text: "Twitter"
+    url: "https://twitter.com/Alan72599473"
+  - icon: "🔗"
+    text: "LinkedIn"
+    url: "https://www.linkedin.com/in/zhixiong-xiao-52830a200"
+  - icon: "💬"
+    text: "WeChat"
+    url: "/images/wechat.png"
+  - icon: "🆔"
+    text: "ORCID"
+    url: "https://orcid.org/0009-0004-7296-9504"
+
+# ── About ────────────────────────────────────────────────
+# about_lead: >-
+#   I explore how to harness <strong>GPU hardware</strong> — specifically
+#   <strong>RT cores</strong> originally built for ray tracing —
+#   to accelerate non-graphics, general-purpose computations such as
+#   graph algorithms and vector search.
+
+about_detail: >-
+  I am an incoming Ph.D. student in the
+  <a href="https://cse.osu.edu/">Department of Computer Science and Engineering</a>
+  at <a href="https://www.osu.edu/">The Ohio State University</a>,
+  advised by Prof. <a href="https://xiaodongzhang1911.github.io">Xiaodong Zhang</a>.
+  My research sits at the intersection of <strong>computer systems</strong>,
+  <strong>GPU architecture</strong>, and <strong>high-performance computing</strong>,
+  with a focus on repurposing <strong>ray tracing (RT) cores</strong>, massively hardware-accelerated
+  parallel spatial-query engines originally built for graphics, to accelerate broader computational workloads.
+  I received my M.Eng. from <a href="https://www.cs.sdu.edu.cn/">Shandong University</a>,
+  advised by Prof. <a href="https://xiaomengbai.github.io/">Mengbai Xiao</a>,
+  and B.Eng. from <a href="https://www.dlmu.edu.cn/">Dalian Maritime University</a>.
+
+# ── Research Experience ───────────────────────────────
+experience:
+  - role: "Research Assistant"
+    institution: "Shandong University"
+    period: "Sep 2025 – Jul 2026"
+
+# ── Education ──────────────────────────────────────────
+education:
+  - degree: "Ph.D. in Computer Science & Engineering"
+    school: "The Ohio State University"
+    logo: "/images/badges/Ohio_State_Buckeyes_logo.svg"
+    advisor: "Advisor: Prof. Xiaodong Zhang"
+    period: "2026 – Present"
+  - degree: "M.Eng. in Computer Science and Technology"
+    school: "Shandong University"
+    logo: "/images/badges/SDU.png"
+    advisor: "Advisor: Prof. Mengbai Xiao"
+    period: "Sep 2022 – Jun 2025"
+  - degree: "B.Eng. in Computer Science and Technology"
+    school: "Dalian Maritime University"
+    logo: "/images/badges/DMU.svg"
+    period: "Sep 2018 – Jun 2022"
+
+# ── Honors & Awards ───────────────────────────────────
+awards:
+  - name: "First-Class Academic Scholarship, Shandong University"
+    date: "Nov 2023"
+  - name: "Weichai Power Scholarship, Shandong University"
+    date: "Oct 2023"
+  - name: "Bronze Medal, The 45th ACM International Collegiate Programming Contest (ICPC), Shenyang Site"
+    date: "Sep 2021"
+  - name: "Bronze Medal, The 45th ACM International Collegiate Programming Contest (ICPC), Yinchuan Site"
+    date: "May 2021"
+  - name: "Bronze Medal, The 6th China Collegiate Programming Contest (CCPC), Changchun Site"
+    date: "Nov 2020"
+  - name: "Third Prize, The 14th Northeastern China Collegiate Programming Contest"
+    date: "Oct 2020"
+
+# ── Professional Services ─────────────────────────────
+services:
+  - name: "Shadow PC, ACM SIGMETRICS"
+    date: "2026"
+
+# ── Teaching ──────────────────────────────────────────
+teaching:
+  - role: "Teaching Assistant — Data Structures and Algorithms"
+    school: "Shandong University"
+    period: "Fall 2024"
+  - role: "Teaching Assistant — Data Structures and Algorithms"
+    school: "Shandong University"
+    period: "Fall 2023"
+  - role: "Teaching Assistant — Curriculum Design for Operating Systems"
+    school: "Shandong University"
+    period: "Spring 2023"
+
+# ── Skills ──────────────────────────────────────────
+skills:
+  - category: "Programming Languages"
+    items: ["CUDA", "C/C++", "Python"]
+  - category: "Tools & Frameworks"
+    items: ["OptiX", "Nsight", "Triton", "vLLM", "FlashInfer", "Torch", "OpenMP", "Git"]
+

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="{{ site.description | strip_newlines | xml_escape }}" />
+  <title>{{ site.title | escape }} | OSU CSE</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+
+</head>
+<body>
+
+  <!-- ========== TOP NAVIGATION ========== -->
+  <nav class="top-nav" id="top-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-item active">Home</a>
+      <span class="nav-dot">·</span>
+      <a href="/publications" class="nav-item">Publications</a>
+      <span class="nav-dot">·</span>
+      <a href="/cv" class="nav-item">CV</a>
+      <span class="nav-dot">·</span>
+      <a href="/beyond" class="nav-item">Beyond</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <main class="main">
+      {{ content }}
+    </main>
+  </div>
+
+  <footer>
+    <p>{{ site.data.profile.name }} &copy; <span id="year"></span></p>
+  </footer>
+
+  <script>
+    // ── Footer year ──────────────────────────────────────
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ── Photo fallback ───────────────────────────────────
+    (function() {
+      var img = document.getElementById('id-photo');
+      var fb  = document.getElementById('id-fb');
+      if (!img || !fb) return;
+      img.addEventListener('error', function() {
+        img.style.display = 'none';
+        fb.style.display = 'flex';
+      });
+      {% unless site.data.profile.photo %}
+      img.style.display = 'none';
+      fb.style.display = 'flex';
+      {% endunless %}
+    })();
+
+    // ── Navigation active tracking ───────────────────────
+    (function() {
+      var items = document.querySelectorAll('.nav-item');
+      if (!items.length) return;
+      var path = window.location.pathname.replace(/\/$/, '') || '/';
+      items.forEach(function(link) {
+        var href = link.getAttribute('href');
+        if (href === path || (path !== '/' && href !== '/' && path.startsWith(href))) {
+          link.classList.add('active');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
