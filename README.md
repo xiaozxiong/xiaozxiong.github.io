@@ -2,8 +2,6 @@
 
 Personal academic homepage built with **Jekyll**, deployed on **GitHub Pages**.
 
-Design inspired by [jinghanyang.com](https://jinghanyang.com).
-
 ## Quick Start
 
 ### Prerequisites

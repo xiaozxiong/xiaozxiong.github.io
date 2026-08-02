@@ -13,6 +13,10 @@ authors:
   - name: "Guanghui Zhang"
   - name: "Feng Li"
 links:
-  # - text: "PDF"
-  #   url: ""
+  - text: "PDF"
+    url: "assets/pubs/icdcs26_pars.pdf"
+  - text: "Slides"
+    url: "assets/slides/icdcs26_pars.pptx"
+  - text: "Code"
+    url: "https://github.com/PARS-ANNS/PARS"
 ---
