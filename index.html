@@ -29,11 +29,11 @@ layout: default
   <div class="id-contact">
     <div class="id-links">
       <a class="id-link" href="mailto:{{ p.email }}">
-        <span class="s-icon">✉️</span> {{ p.email }}
+        <i class="s-icon fa-solid fa-envelope" aria-hidden="true"></i> {{ p.email }}
       </a>
       {% for link in p.links %}
       <a class="id-link" href="{{ link.url }}" target="_blank" rel="noopener">
-        <span class="s-icon">{{ link.icon }}</span> {{ link.text }}
+        <i class="s-icon {{ link.icon }}" aria-hidden="true"></i> {{ link.text }}
       </a>
       {% endfor %}
     </div>
