@@ -28,8 +28,8 @@ layout: default
 
   <div class="id-contact">
     <div class="id-links">
-      <a class="id-link" href="mailto:{{ p.email }}">
-        <i class="s-icon fa-solid fa-envelope" aria-hidden="true"></i> {{ p.email }}
+      <a class="id-link" id="email-link" href="#">
+        <i class="s-icon fa-solid fa-envelope" aria-hidden="true"></i> <span id="email-text"></span>
       </a>
       {% for link in p.links %}
       <a class="id-link" href="{{ link.url }}" target="_blank" rel="noopener">
@@ -123,4 +123,17 @@ layout: default
   {% endif %}
   <p class="pub-all-link"><a href="/publications">→ Full publication list</a></p>
 </section>
+
+<script>
+  // ── Email obfuscation ─────────────────────────────────
+  (function () {
+    var u = "{{ p.email | split: '@' | first }}";
+    var d = "{{ p.email | split: '@' | last }}";
+    var link = document.getElementById('email-link');
+    var txt  = document.getElementById('email-text');
+    if (!link || !txt) return;
+    txt.textContent = u + '@' + d;
+    link.setAttribute('href', 'mailto:' + u + '@' + d);
+  })();
+</script>
 

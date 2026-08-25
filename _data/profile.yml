@@ -20,6 +20,9 @@ links:
   - icon: "fa-brands fa-github"
     text: "GitHub"
     url: "https://github.com/xiaozxiong"
+  - icon: "fa-brands fa-gitlab"
+    text: "GitLab"
+    url: "https://gitlab.com/xiaozhxiong"
   - icon: "fa-brands fa-x-twitter"
     text: "Twitter"
     url: "https://twitter.com/Alan72599473"
@@ -57,13 +60,14 @@ about_detail: >-
 experience:
   - role: "Research Assistant"
     institution: "Shandong University"
+    logo: "/images/badges/SDU.png"
     period: "Sep 2025 – Jul 2026"
 
 # ── Education ──────────────────────────────────────────
 education:
-  - degree: "Ph.D. in Computer Science & Engineering"
+  - degree: "Ph.D. in Computer Science and Engineering"
     school: "The Ohio State University"
-    logo: "/images/badges/Ohio_State_Buckeyes_logo.svg"
+    logo: "/images/badges/osu.png"
     advisor: "Advisor: Prof. Xiaodong Zhang"
     period: "2026 – Present"
   - degree: "M.Eng. in Computer Science and Technology"

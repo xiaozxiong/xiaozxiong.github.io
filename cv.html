@@ -32,7 +32,10 @@ layout: default
     <div class="cv-item">
       <div class="cv-item-main">
         <div class="cv-item-title">{{ exp.role }}</div>
-        <div class="cv-item-sub">{{ exp.institution }}</div>
+        <div class="cv-item-sub">
+          {% if exp.logo %}<img src="{{ exp.logo | relative_url }}" alt="" class="cv-logo" />{% endif %}
+          {{ exp.institution }}
+        </div>
       </div>
       <div class="cv-item-period">{{ exp.period }}</div>
     </div>
