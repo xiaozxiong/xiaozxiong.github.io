@@ -95,14 +95,14 @@ layout: default
       <div class="pub-body">
         <div class="pub-title">{{ pub.title }}</div>
         <div class="pub-authors">
-          {% for author in pub.authors %}
-            {% if author.me %}<span class="me">{% else %}{% endif %}
-            {{ author.name }}
-            {% if author.star %}<span class="pub-star">*</span>{% endif %}
-            {% if author.hash %}<span class="pub-hash">#</span>{% endif %}
-            {% if author.me %}</span>{% endif %}
-            {% unless forloop.last %}, {% endunless %}
-          {% endfor %}
+          {%- for author in pub.authors -%}
+            {%- if author.me %}<span class="me">{% endif -%}
+            {{- author.name -}}
+            {%- if author.star %}<span class="pub-star">*</span>{% endif -%}
+            {%- if author.hash %}<span class="pub-hash">#</span>{% endif -%}
+            {%- if author.me %}</span>{% endif -%}
+            {%- unless forloop.last %}, {% endunless -%}
+          {%- endfor -%}
         </div>
         <div class="pub-meta">
           <div class="pub-venue">{{ pub.venue }}</div>
