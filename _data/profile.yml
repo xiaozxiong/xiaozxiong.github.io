@@ -7,7 +7,7 @@ name: "Zhixiong Xiao"
 name_cn: "肖志雄"
 pronouns: "He / Him"
 photo: "/images/portrait.jpg"                           # e.g. /images/portrait.jpg — leave empty for initial
-affiliation: "Incoming PhD Student"
+affiliation: "First-Year PhD Student"
 school: "The Ohio State University"
 
 email: "xiao.1314@osu.edu"
@@ -44,7 +44,7 @@ links:
 #   graph algorithms and vector search.
 
 about_detail: >-
-  I am an incoming Ph.D. student in the
+  I am a first-year Ph.D. student in the
   <a href="https://cse.osu.edu/">Department of Computer Science and Engineering</a>
   at <a href="https://www.osu.edu/">The Ohio State University</a>,
   advised by Prof. <a href="https://xiaodongzhang1911.github.io">Xiaodong Zhang</a>.
