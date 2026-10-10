@@ -5,9 +5,9 @@
 # ── Identity ────────────────────────────────────────────
 name: "Zhixiong Xiao"
 name_cn: "肖志雄"
-pronouns: "He / Him"
+pronouns: "he/him"
 photo: "/images/portrait.jpg"                           # e.g. /images/portrait.jpg — leave empty for initial
-affiliation: "First-Year PhD Student"
+affiliation: "First-Year Ph.D. Student"
 school: "The Ohio State University"
 
 email: "xiao.1314@osu.edu"
@@ -50,11 +50,11 @@ about_detail: >-
   advised by Prof. <a href="https://xiaodongzhang1911.github.io">Xiaodong Zhang</a>.
   My research sits at the intersection of <strong>computer systems</strong>,
   <strong>GPU architecture</strong>, and <strong>high-performance computing</strong>,
-  with a focus on repurposing <strong>ray tracing (RT) cores</strong>, massively hardware-accelerated
-  parallel spatial-query engines originally built for graphics, to accelerate broader computational workloads.
+  with a focus on using <strong>ray tracing (RT) cores</strong>, originally designed for graphics,
+  to accelerate general-purpose computational workloads.
   I received my M.Eng. from <a href="https://www.cs.sdu.edu.cn/">Shandong University</a>,
-  advised by Prof. <a href="https://xiaomengbai.github.io/">Mengbai Xiao</a>,
-  and B.Eng. from <a href="https://www.dlmu.edu.cn/">Dalian Maritime University</a>.
+  where I was advised by Prof. <a href="https://xiaomengbai.github.io/">Mengbai Xiao</a>.
+  I received my B.Eng. from <a href="https://www.dlmu.edu.cn/">Dalian Maritime University</a>.
 
 # ── Research Experience ───────────────────────────────
 experience:
@@ -69,7 +69,7 @@ education:
     school: "The Ohio State University"
     logo: "/images/badges/osu.png"
     advisor: "Advisor: Prof. Xiaodong Zhang"
-    period: "2026 – Present"
+    period: "Sep 2026 – Present"
   - degree: "M.Eng. in Computer Science and Technology"
     school: "Shandong University"
     logo: "/images/badges/SDU.png"
@@ -95,9 +95,9 @@ awards:
   - name: "Third Prize, The 14th Northeastern China Collegiate Programming Contest"
     date: "Oct 2020"
 
-# ── Professional Services ─────────────────────────────
+# ── Professional Service ──────────────────────────────
 services:
-  - name: "Shadow PC, ACM SIGMETRICS"
+  - name: "Shadow Program Committee Member, ACM SIGMETRICS"
     date: "2026"
 
 # ── Teaching ──────────────────────────────────────────
@@ -114,7 +114,7 @@ teaching:
 
 # ── Skills ──────────────────────────────────────────
 skills:
-  - category: "Programming Languages"
+  - category: "Languages & Parallel Programming"
     items: ["CUDA", "C/C++", "Python"]
   - category: "Tools & Frameworks"
     items: ["OptiX", "Nsight", "Triton", "vLLM", "FlashInfer", "Torch", "OpenMP", "Git"]
