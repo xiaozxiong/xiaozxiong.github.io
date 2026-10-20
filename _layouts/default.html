@@ -58,6 +58,18 @@
       {% endunless %}
     })();
 
+    // Open external websites and downloadable documents in a new tab.
+    document.querySelectorAll('.wrap a[href]').forEach(function(link) {
+      var url = new URL(link.href, window.location.href);
+      var isWebsite = url.protocol === 'http:' || url.protocol === 'https:';
+      var isExternal = isWebsite && url.origin !== window.location.origin;
+      var isDocument = isWebsite && /\.(pdf|pptx?|docx?)(?:$)/i.test(url.pathname);
+      if (isExternal || isDocument) {
+        link.setAttribute('target', '_blank');
+        link.relList.add('noopener');
+      }
+    });
+
     // ── Navigation active tracking ───────────────────────
     (function() {
       var items = document.querySelectorAll('.nav-item');
