@@ -52,7 +52,10 @@ page_class: home-page
 
 <!-- ========== SELECTED PUBLICATIONS ========== -->
 <section class="module" id="pub-sec">
-  <h2>Selected Publications</h2>
+  <div class="section-heading">
+    <h2>Selected Publications</h2>
+    <a class="pub-all-link" href="{{ '/publications' | relative_url }}">Full publication list <span aria-hidden="true">&gt;&gt;</span></a>
+  </div>
   {% assign pubs = site.publications | where: "selected", true | sort: "date" | reverse %}
   {% if pubs.size > 0 %}
   <div id="pub-list">
@@ -88,6 +91,19 @@ page_class: home-page
   {% else %}
   <span class="empty-hint">Publications coming soon.</span>
   {% endif %}
-  <p class="pub-all-link"><a href="{{ '/publications' | relative_url }}">→ Full publication list</a></p>
 </section>
 
+<!-- ========== SERVICES ========== -->
+{% if p.services.size > 0 %}
+<section class="module" id="services-sec">
+  <h2>Services</h2>
+  <ul class="service-list">
+    {% for service in p.services %}
+    <li class="service-item">
+      <span>{{ service.name }}</span>
+      {% if service.date %}<span class="service-date">{{ service.date }}</span>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
