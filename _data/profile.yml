@@ -29,12 +29,12 @@ links:
   - icon: "fa-brands fa-linkedin"
     text: "LinkedIn"
     url: "https://www.linkedin.com/in/zhixiong-xiao-52830a200"
-  - icon: "fa-brands fa-weixin"
-    text: "WeChat"
-    url: "/images/wechat.png"
   - icon: "fa-brands fa-orcid"
     text: "ORCID"
     url: "https://orcid.org/0009-0004-7296-9504"
+  - icon: "fa-brands fa-weixin"
+    text: "WeChat"
+    url: "/images/wechat.png"
 
 # ── About ────────────────────────────────────────────────
 # about_lead: >-
@@ -48,10 +48,14 @@ about_detail: >-
   <a href="https://cse.osu.edu/">Department of Computer Science and Engineering</a>
   at <a href="https://www.osu.edu/">The Ohio State University</a>,
   advised by Prof. <a href="https://xiaodongzhang1911.github.io">Xiaodong Zhang</a>.
-  My research sits at the intersection of <strong>computer systems</strong>,
-  <strong>GPU architecture</strong>, and <strong>high-performance computing</strong>,
-  with a focus on using <strong>ray tracing (RT) cores</strong>, originally designed for graphics,
-  to accelerate general-purpose computational workloads.
+  My research focuses on <strong>RT core repurposing</strong>: using the dedicated
+  ray tracing hardware in modern GPUs to accelerate computations beyond graphics.
+  I explore how to reformulate computational problems as <strong>spatial queries</strong>
+  that leverage hardware-accelerated ray intersection tests and
+  <strong>bounding volume hierarchy (BVH) traversal</strong>.
+  My goal is to understand which workloads can benefit from these capabilities
+  and how algorithm design, data representation, and GPU execution can work together
+  to make effective use of RT cores.
   I received my M.Eng. from <a href="https://www.cs.sdu.edu.cn/">Shandong University</a>,
   where I was advised by Prof. <a href="https://xiaomengbai.github.io/">Mengbai Xiao</a>.
   I received my B.Eng. from <a href="https://www.dlmu.edu.cn/">Dalian Maritime University</a>.

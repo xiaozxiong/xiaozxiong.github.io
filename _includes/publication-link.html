@@ -1,0 +1,8 @@
+{%- assign link_type = include.link.text | downcase -%}
+{%- assign link_icon = 'fa-solid fa-arrow-up-right-from-square' -%}
+{%- case link_type -%}
+  {%- when 'pdf', 'paper' -%}{%- assign link_icon = 'fa-regular fa-file-pdf' -%}
+  {%- when 'code' -%}{%- assign link_icon = 'fa-solid fa-code' -%}
+  {%- when 'slide', 'slides' -%}{%- assign link_icon = 'fa-solid fa-chalkboard' -%}
+{%- endcase -%}
+<a class="pub-link" href="{{ include.link.url }}" target="_blank" rel="noopener"><i class="{{ link_icon }}" aria-hidden="true"></i><span>{{ include.link.text }}</span></a>

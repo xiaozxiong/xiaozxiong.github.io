@@ -1,0 +1,21 @@
+{% assign p = site.data.profile %}
+<aside class="profile-summary" aria-label="Profile">
+  <div class="id-photo-wrap" id="id-photo-wrap">
+    <img id="id-photo" src="{{ p.photo | relative_url }}" alt="{{ p.name | escape }}" />
+    <div class="id-fb" id="id-fb">{{ p.name | slice: 0 }}</div>
+  </div>
+  <h1 class="id-name">{{ p.name }}</h1>
+  {% if p.name_cn %}<p class="id-cn">{{ p.name_cn }}</p>{% endif %}
+  <p class="id-affil"><span class="id-role">{{ p.affiliation }}</span><span class="id-school">{{ p.school }}</span></p>
+  <a class="id-link email-link" id="email-link" href="mailto:{{ p.email | escape }}">
+    <span id="email-text">{{ p.email }}</span>
+  </a>
+  <a class="cv-button" href="{{ p.cv_link | default: '/assets/cv/xiao_cv.pdf' | relative_url }}"><i class="fa-regular fa-file-lines" aria-hidden="true"></i> Curriculum Vitae <span aria-hidden="true">↗</span></a>
+  <nav class="id-links" aria-label="Profile links">
+    {% for link in p.links %}
+    <a class="id-link" href="{{ link.url }}" target="_blank" rel="noopener" aria-label="{{ link.text | escape }}" title="{{ link.text | escape }}">
+      <i class="{{ link.icon }}" aria-hidden="true"></i>
+    </a>
+    {% endfor %}
+  </nav>
+</aside>

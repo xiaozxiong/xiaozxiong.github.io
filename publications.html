@@ -1,5 +1,6 @@
 ---
 layout: default
+page_class: publications-page
 ---
 
 {% assign pubs_by_year = site.publications | sort: "date" | reverse | group_by_exp: "item", "item.date | date: '%Y'" %}
@@ -7,7 +8,7 @@ layout: default
 <div class="pub-layout">
 
   <section class="module">
-    <h2><i class="fa-solid fa-file-lines"></i> Publications</h2>
+    <h2><span class="section-title-text">Publications</span></h2>
       <p class="pub-legend"><span class="pub-star">*</span> equal contribution &nbsp; <span class="pub-hash">#</span> corresponding author</p>
 
     {% for year in pubs_by_year %}
@@ -16,6 +17,7 @@ layout: default
       {% for pub in year.items %}
       <div class="pub">
         <div class="pub-body">
+
           <div class="pub-title">{{ pub.title }}</div>
           <div class="pub-authors">
             {%- for author in pub.authors -%}
@@ -32,7 +34,7 @@ layout: default
             {% if pub.links.size > 0 %}
             <div class="pub-links">
               {% for link in pub.links %}
-              <a class="pub-link" href="{{ link.url }}" target="_blank" rel="noopener">[{{ link.text }}]</a>
+              {% include publication-link.html link=link %}
               {% endfor %}
             </div>
             {% endif %}
@@ -45,13 +47,45 @@ layout: default
 
   </section>
 
-  <aside class="pub-year-nav">
+  <nav class="pub-year-nav" aria-label="Publication years">
     <div class="card year-nav-card">
+      <p class="year-nav-label">YEAR</p>
       <div class="year-nav-inner" id="year-nav">
         {% for year in pubs_by_year %}
         <a class="year-nav-link" href="#year-{{ year.name }}">{{ year.name }}</a>
         {% endfor %}
       </div>
     </div>
-  </aside>
+  </nav>
 </div>
+
+<script>
+  // Keep the year navigation in sync with the publication list.
+  (function () {
+    var links = Array.from(document.querySelectorAll('.year-nav-link'));
+    var sections = links.map(function (link) {
+      return document.getElementById(link.hash.slice(1));
+    });
+    if (!sections.length) return;
+    var scheduled = false;
+    function updateYear() {
+      var current = 0;
+      sections.forEach(function (section, index) {
+        if (section && section.getBoundingClientRect().top <= 130) current = index;
+      });
+      links.forEach(function (link, index) {
+        if (index === current) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+      scheduled = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!scheduled) {
+        scheduled = true;
+        window.requestAnimationFrame(updateYear);
+      }
+    }, { passive: true });
+    window.addEventListener('resize', updateYear);
+    updateYear();
+  })();
+</script>

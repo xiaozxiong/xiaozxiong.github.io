@@ -8,29 +8,28 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,650;14..32,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
-  <link rel="icon" type="image/png" href="{{ '/images/logo.png' | relative_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}" />
+  <link rel="icon" type="image/png" href="{{ '/images/logo.png' | relative_url }}?v={{ site.time | date: '%s' }}" />
 
 </head>
-<body>
+<body{% if page.page_class %} class="{{ page.page_class | escape }}"{% endif %}>
 
-  <!-- ========== TOP NAVIGATION ========== -->
-  <nav class="top-nav" id="top-nav">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="top-nav" id="top-nav">
     <div class="nav-inner">
-      <a href="/" class="nav-item">Home</a>
-      <span class="nav-dot">·</span>
-      <a href="/publications" class="nav-item">Publications</a>
-      <span class="nav-dot">·</span>
-      <a href="/cv" class="nav-item">CV</a>
-      <span class="nav-dot">·</span>
-      <a href="/beyond" class="nav-item">Beyond</a>
+      <a class="nav-brand" href="{{ '/' | relative_url }}" aria-label="{{ site.data.profile.name | escape }} — Home"><img class="nav-logo" src="{{ '/images/logo.png' | relative_url }}?v={{ site.time | date: '%s' }}" alt="ZX" width="56" height="56" /></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="{{ '/' | relative_url }}" class="nav-item" {% if page.url == '/' %}aria-current="page"{% endif %}><i class="fa-solid fa-house" aria-hidden="true"></i> Home</a>
+        <a href="{{ '/publications' | relative_url }}" class="nav-item" {% if page.url contains 'publications' %}aria-current="page"{% endif %}><i class="fa-solid fa-book-open" aria-hidden="true"></i> Publications</a>
+      </nav>
     </div>
-  </nav>
+  </header>
 
-  <div class="wrap">
-    <main class="main">
+  <div class="wrap site-layout">
+    {% include profile.html %}
+    <main class="main" id="main-content">
       {{ content }}
     </main>
   </div>
@@ -48,10 +47,12 @@
       var img = document.getElementById('id-photo');
       var fb  = document.getElementById('id-fb');
       if (!img || !fb) return;
-      img.addEventListener('error', function() {
+      function showFallback() {
         img.style.display = 'none';
         fb.style.display = 'flex';
-      });
+      }
+      img.addEventListener('error', showFallback);
+      if (img.complete && img.naturalWidth === 0) showFallback();
       {% unless site.data.profile.photo %}
       img.style.display = 'none';
       fb.style.display = 'flex';

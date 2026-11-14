@@ -1,15 +1,16 @@
 ---
 layout: default
+page_class: beyond-page
 ---
 
 {% assign items = site.beyond | sort: "date" | reverse %}
 
-<main class="main">
+<div class="page-content">
 
   {% if items.size > 0 %}
   {% for item in items %}
   <section class="module">
-    <h2><i class="fa-solid fa-image"></i> {{ item.title }}</h2>
+    <h2>{{ item.title }}</h2>
     {% if item.intro %}<p>{{ item.intro }}</p>{% endif %}
     {% if item.photos and item.photos.size > 0 %}
     <div class="gallery">
@@ -26,9 +27,9 @@ layout: default
   {% endfor %}
   {% else %}
   <section class="module">
-    <h2><i class="fa-solid fa-image"></i> Beyond Research</h2>
+    <h2>Beyond Research</h2>
     <div class="empty-hint">Nothing here yet. Create a <code>.md</code> file in <code>_beyond/</code> to get started.</div>
   </section>
   {% endif %}
 
-</main>
+</div>
